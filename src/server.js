@@ -4,11 +4,6 @@ import React from 'react';
 import {renderToString} from 'react-dom/server';
 import {Provider} from 'react-redux';
 
-import stylus from 'stylus';
-import axis from 'axis';
-import jeet from 'jeet';
-import rupture from 'rupture';
-
 import App from './Components/App/App';
 import Store from './Store/Store';
 
@@ -23,25 +18,6 @@ app.set(`view engine`, `pug`);
 
 app.use(morgan(`dev`));
 
-app.use(stylus.middleware(
-  { src: __dirname + '/public'
-  , compile: (str, path) => stylus(str)
-      .set('filename', path)
-      .use(axis())
-      .use(jeet())
-      .use(rupture())
-  }
-))
-
-app.use((req, res, next) => {
-
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-
-  next();
-});
-
 app.use(express.static(`./public`));
 
 app.get(`/`, function(req, res){
@@ -54,10 +30,6 @@ app.get(`/`, function(req, res){
 
 app.get(`/other`, function(req, res){
   res.render(`other`);
-});
-
-app.get(`/iHomefinder`, function(req, res){
-  res.render(`iHomefinder`);
 });
 
 app.listen(app.get(`port`), app.get(`ip`), function(){

@@ -3,26 +3,18 @@ html.no-js(lang='en-us')
   head
     meta(charset='utf-8')
     meta(http-equiv='x-ua-compatible', content='ie=edge')
-    title Sample App
+    title App
     meta(name='description', content='')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel='apple-touch-icon', href='apple-touch-icon.png')
-    // Place favicon.ico in the root directory
-    //- link(rel='stylesheet', href='css/normalize.css')
-    //- link(rel='stylesheet', href='css/main.css')
-    //- script(src='js/vendor/modernizr-2.8.3.min.js')
-  body
-    |<!--[if lt IE 9]>
-    |    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    |<![endif]-->
 
+    // Place favicon.ico in the root directory
+
+    link(rel='stylesheet', href='styles/main.css')
+  body
     //- React  App
     #rootApp!= app
-    script( src='/js/bundle.js')
-
-    //- #ihf_property_gallery
-    //- script( type="text/javascript" src="http://www.idxhome.com/site/listing/gallery/slider/62458?hid=134554&rows=1&columns=3")
-    //- | <script type="text/javascript" src="http://www.idxre.com/idx/listingWidget_js.cfm?clientid=62458&hid=134554&rows=1&columns=3"></script>
+    //- script( src='/js/bundle.js')
 
     // Google Analytics: change UA-XXXXX-Y to be your site's ID.
     script.

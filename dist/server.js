@@ -16,22 +16,6 @@ var _server = require('react-dom/server');
 
 var _reactRedux = require('react-redux');
 
-var _stylus = require('stylus');
-
-var _stylus2 = _interopRequireDefault(_stylus);
-
-var _axis = require('axis');
-
-var _axis2 = _interopRequireDefault(_axis);
-
-var _jeet = require('jeet');
-
-var _jeet2 = _interopRequireDefault(_jeet);
-
-var _rupture = require('rupture');
-
-var _rupture2 = _interopRequireDefault(_rupture);
-
 var _App = require('./Components/App/App');
 
 var _App2 = _interopRequireDefault(_App);
@@ -53,21 +37,6 @@ app.set('view engine', 'pug');
 
 app.use((0, _morgan2.default)('dev'));
 
-app.use(_stylus2.default.middleware({ src: __dirname + '/public',
-  compile: function compile(str, path) {
-    return (0, _stylus2.default)(str).set('filename', path).use((0, _axis2.default)()).use((0, _jeet2.default)()).use((0, _rupture2.default)());
-  }
-}));
-
-app.use(function (req, res, next) {
-
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-
-  next();
-});
-
 app.use(_express2.default.static('./public'));
 
 app.get('/', function (req, res) {
@@ -80,10 +49,6 @@ app.get('/', function (req, res) {
 
 app.get('/other', function (req, res) {
   res.render('other');
-});
-
-app.get('/iHomefinder', function (req, res) {
-  res.render('iHomefinder');
 });
 
 app.listen(app.get('port'), app.get('ip'), function () {
