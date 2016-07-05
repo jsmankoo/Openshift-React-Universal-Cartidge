@@ -16,9 +16,15 @@ var _radium = require('radium');
 
 var _radium2 = _interopRequireDefault(_radium);
 
-var _reactMotion = require('react-motion');
-
 var _reactRedux = require('react-redux');
+
+var _color = require('color');
+
+var _color2 = _interopRequireDefault(_color);
+
+var _styles = require('../../styles');
+
+var _Styles = require('./Styles');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -44,37 +50,26 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   };
 };
 
-var App = (_dec = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps), _dec(_class = function (_Component) {
+var App = (_dec = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps), _dec(_class = (0, _radium2.default)(_class = function (_Component) {
   _inherits(App, _Component);
 
-  function App(props) {
+  function App() {
+    var _Object$getPrototypeO;
+
+    var _temp, _this, _ret;
+
     _classCallCheck(this, App);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, props));
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
 
-    _this.state = {
-      AppMounted: false
-    };
-    return _this;
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(App)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.shouldComponentUpdate = function (nextProps) {
+      return nextProps.menuOpen !== _this.props.menuOpen;
+    }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(App, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      this.timeout = setTimeout(function () {
-        _this2.setState({
-          AppMounted: true
-        });
-      }, 500);
-    }
-  }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      clearTimeout(this.timeout);
-    }
-  }, {
     key: 'render',
     value: function render() {
       var _props = this.props;
@@ -83,28 +78,33 @@ var App = (_dec = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps),
 
       return _react2.default.createElement(
         _radium.StyleRoot,
-        null,
+        { style: [_Styles.base] },
         _react2.default.createElement(
           'h1',
-          null,
-          'App!!!!'
+          { style: [_Styles.h1] },
+          'App!'
         ),
         _react2.default.createElement(
           'div',
-          { className: 'Menu' },
-          menuOpen ? 'Open' : 'Closed'
-        ),
-        _react2.default.createElement(
-          'button',
-          { onClick: toggle },
-          'Toggle'
+          { style: [_Styles.menuWraper] },
+          _react2.default.createElement(
+            'div',
+            { style: [_Styles.menuWraper.menuState] },
+            menuOpen ? 'Open' : 'Closed'
+          ),
+          _react2.default.createElement(
+            'button',
+            { onClick: toggle,
+              style: [_Styles.menuWraper.button, { backgroundColor: (0, _color2.default)(menuOpen ? _styles.colors.green : _styles.colors.red).hslString() }] },
+            'Toggle'
+          )
         )
       );
     }
   }]);
 
   return App;
-}(_react.Component)) || _class);
+}(_react.Component)) || _class) || _class);
 ;
 
 exports.default = App;

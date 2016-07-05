@@ -278,3 +278,7 @@ html body {
   display: -ms-flexbox;
   display: flex;
 }
+html body #rootApp {
+  width: 100%;
+  height: auto;
+}

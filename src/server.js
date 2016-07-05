@@ -28,10 +28,6 @@ app.get(`/`, function(req, res){
   )});
 });
 
-app.get(`/other`, function(req, res){
-  res.render(`other`);
-});
-
 app.listen(app.get(`port`), app.get(`ip`), function(){
   console.log('Application ip ' + app.get(`ip`) + ':' + app.get(`port`));
   console.log('worker ' + process.pid + 'started...');

@@ -4,6 +4,7 @@
 # TEAM
 
     <name> -- <role> -- <twitter>
+    Jai Singh Mankoo  -- Full Stack Developer -- @jaismankoo
 
 # THANKS
 
@@ -11,5 +12,7 @@
 
 # TECHNOLOGY COLOPHON
 
-    CSS3, HTML5
-    Apache Server Configs, jQuery, Modernizr, Normalize.css
+    React, ImmutableJS, Redux, Radium,
+    Stylus, Axis, Rupture,
+    Node, Express, Pug,
+    HTML5 Boilerplate
